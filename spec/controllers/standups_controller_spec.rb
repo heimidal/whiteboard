@@ -50,6 +50,12 @@ describe StandupsController do
       assigns[:standup].should == standup
       response.should be_ok
     end
+
+    it "allows updates to the IP address range" do
+      get :edit, id: standup.id
+      # click on the Edit IP Address button
+      response.should redirect_to authorized_ips_edit_path
+    end
   end
 
   describe "#show" do
